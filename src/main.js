@@ -2,6 +2,21 @@ import { AnimusCursor } from './cursor.js';
 import { EmberAtmosphere } from './canvas-embers.js';
 import { sound } from './sound.js';
 
+// Import All 7 Animus Event Cards for Vite Bundling
+import card01 from '../assets/event_cards/01_technical_events.png';
+import card02 from '../assets/event_cards/02_hackathons.png';
+import card03 from '../assets/event_cards/03_non_technical_events.png';
+import card04 from '../assets/event_cards/04_workshops.png';
+import card05 from '../assets/event_cards/05_fpv_drone_racing.png';
+import card06 from '../assets/event_cards/06_robowars.png';
+import card07 from '../assets/event_cards/07_main_stage.png';
+
+// Preload card images for instantaneous 3D display
+[card01, card02, card03, card04, card05, card06, card07].forEach((src) => {
+  const img = new Image();
+  img.src = src;
+});
+
 // 1. Initialize Animus Crosshair Cursor
 const cursor = new AnimusCursor();
 
@@ -124,7 +139,7 @@ if (campusMapOverlay) {
 // 7. Memory Dossier Database with Clean Vertical Collectible Cards
 const memoryData = {
   technical: {
-    img: './assets/event_cards/01_technical_events.png',
+    img: card01,
     cat: 'FLAGSHIP CODING & ALGORITHMS',
     title: '01 // Technical Events',
     bounty: 'BOUNTY: ₹5,00,000 INR',
@@ -136,7 +151,7 @@ const memoryData = {
     ]
   },
   hackathons: {
-    img: './assets/event_cards/02_hackathons.png',
+    img: card02,
     cat: '36-HOUR SOVEREIGN SPRINT',
     title: '02 // Hackathons',
     bounty: 'BOUNTY: ₹6,00,000 INR',
@@ -148,7 +163,7 @@ const memoryData = {
     ]
   },
   nontechnical: {
-    img: './assets/event_cards/03_non_technical_events.png',
+    img: card03,
     cat: 'STRATEGY, MEDIA & GAMING',
     title: '03 // Non-Technical Events',
     bounty: 'BOUNTY: ₹3,00,000 INR',
@@ -160,7 +175,7 @@ const memoryData = {
     ]
   },
   workshops: {
-    img: './assets/event_cards/04_workshops.png',
+    img: card04,
     cat: 'CERTIFIED MASTER ARCHITECTS',
     title: '04 // Master Workshops',
     bounty: 'CREDENTIAL: CERTIFIED GUILDS',
@@ -172,7 +187,7 @@ const memoryData = {
     ]
   },
   drones: {
-    img: './assets/event_cards/05_fpv_drone_racing.png',
+    img: card05,
     cat: 'HIGH-VELOCITY AERIAL PURSUIT',
     title: '05 // FPV Drone Racing',
     bounty: 'BOUNTY: ₹3,50,000 INR',
@@ -184,7 +199,7 @@ const memoryData = {
     ]
   },
   robowars: {
-    img: './assets/event_cards/06_robowars.png',
+    img: card06,
     cat: 'HEAVY COMBAT ROBOTICS ARENA',
     title: '06 // Robowars Cage Siege',
     bounty: 'BOUNTY: ₹6,00,000 INR',
@@ -196,7 +211,7 @@ const memoryData = {
     ]
   },
   mainstage: {
-    img: './assets/event_cards/07_main_stage.png',
+    img: card07,
     cat: 'PRO-NIGHT GRAND FINALE',
     title: '07 // Main Stage Pro-Nights',
     bounty: 'ACCESS: FESTIVAL WRISTBAND',
@@ -273,6 +288,9 @@ function loadMemory(seqKey) {
       .join('');
   }
 }
+
+// Initialize default Sequence 01 memory
+loadMemory('technical');
 
 if (dockDossierBtn) dockDossierBtn.addEventListener('click', () => openDossier('technical'));
 if (closeDossierBtn) closeDossierBtn.addEventListener('click', closeDossier);
