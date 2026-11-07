@@ -11,8 +11,9 @@ new EmberAtmosphere('embers-canvas');
 // 3. Multi-Plane 3D Parallax Tracking
 const heroArtLayer = document.getElementById('hero-art-layer');
 const mainTitleBox = document.getElementById('main-title-box');
+const counterBox = document.getElementById('assassins-counter-box');
 
-if (heroArtLayer || mainTitleBox) {
+if (heroArtLayer || mainTitleBox || counterBox) {
   window.addEventListener('mousemove', (e) => {
     const xPct = (e.clientX / window.innerWidth - 0.5) * 2;
     const yPct = (e.clientY / window.innerHeight - 0.5) * 2;
@@ -23,6 +24,10 @@ if (heroArtLayer || mainTitleBox) {
 
     if (mainTitleBox) {
       mainTitleBox.style.transform = `translateX(-50%) translate3d(${-xPct * 16}px, ${-yPct * 12}px, 0) rotateY(${xPct * 4}deg) rotateX(${-yPct * 4}deg)`;
+    }
+
+    if (counterBox) {
+      counterBox.style.transform = `translateX(-50%) translate3d(${-xPct * 8}px, ${-yPct * 4}px, 0)`;
     }
   });
 }
@@ -51,6 +56,7 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeDossier();
     closeForge();
+    closeMap();
   }
 });
 
@@ -69,7 +75,35 @@ if (dockAudio) {
   });
 }
 
-// 6. Memory Dossier Database with Clean Vertical Collectible Cards
+// 6. REC Campus Map Modal
+const campusMapOverlay = document.getElementById('campus-map-overlay');
+const dockMapBtn = document.getElementById('dock-map');
+const closeMapBtn = document.getElementById('close-map');
+
+function openMap() {
+  if (campusMapOverlay) {
+    campusMapOverlay.classList.add('open');
+    sound.playSync();
+  }
+}
+
+function closeMap() {
+  if (campusMapOverlay) {
+    campusMapOverlay.classList.remove('open');
+    sound.playClick();
+  }
+}
+
+if (dockMapBtn) dockMapBtn.addEventListener('click', openMap);
+if (closeMapBtn) closeMapBtn.addEventListener('click', closeMap);
+
+if (campusMapOverlay) {
+  campusMapOverlay.addEventListener('click', (e) => {
+    if (e.target === campusMapOverlay) closeMap();
+  });
+}
+
+// 7. Memory Dossier Database with Clean Vertical Collectible Cards
 const memoryData = {
   technical: {
     img: './assets/event_cards/01_technical_events.png',
@@ -157,7 +191,7 @@ const memoryData = {
   }
 };
 
-// 7. Dossier Overlay Modal Management
+// 8. Dossier Overlay Modal Management
 const dossierOverlay = document.getElementById('dossier-overlay');
 const closeDossierBtn = document.getElementById('close-dossier');
 const dockDossierBtn = document.getElementById('dock-dossier');
@@ -240,7 +274,7 @@ if (btnDossierEnter) {
   });
 }
 
-// 8. 3D Tilt & Holographic Foil Reflection on Collectible Card
+// 9. 3D Tilt & Holographic Foil Reflection on Collectible Card
 if (collectibleCardWrap) {
   collectibleCardWrap.addEventListener('mousemove', (e) => {
     const rect = collectibleCardWrap.getBoundingClientRect();
@@ -270,7 +304,7 @@ if (collectibleCardWrap) {
   });
 }
 
-// 9. Interactive Game World Hotspots Click Handling
+// 10. Interactive Game World Hotspots Click Handling
 const hotspots = document.querySelectorAll('.game-hotspot');
 hotspots.forEach((spot) => {
   spot.addEventListener('click', () => {
@@ -283,7 +317,7 @@ hotspots.forEach((spot) => {
   });
 });
 
-// 10. Pass Forge Modal Management
+// 11. Pass Forge Modal Management
 const forgeOverlay = document.getElementById('forge-overlay');
 const closeForgeBtn = document.getElementById('close-forge');
 const dockPassBtn = document.getElementById('dock-pass');
@@ -319,7 +353,7 @@ if (forgeName && dispName) {
 
 if (forgeCollege && dispCollege) {
   forgeCollege.addEventListener('input', (e) => {
-    dispCollege.textContent = e.target.value.trim() || 'Raghu Engineering College';
+    dispCollege.textContent = e.target.value.trim() || 'Rajalakshmi Engineering College';
   });
 }
 
@@ -367,7 +401,7 @@ if (btnConfirmPass) {
   });
 }
 
-// 11. Live Countdown Timer
+// 12. Live Synchronized Countdown Timer (Into Ornate Counter Frame)
 const hudDays = document.getElementById('hud-days');
 const hudHours = document.getElementById('hud-hours');
 const hudMinutes = document.getElementById('hud-minutes');

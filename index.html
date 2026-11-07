@@ -128,10 +128,37 @@
           "NOTHING IS IMPOSSIBLE &bull; EVERYTHING IS ENGINEERED"
         </div>
       </div>
+
+      <!-- RESTYLED ASSASSIN'S CREED COUNTDOWN TIMER (Bottom Center) -->
+      <div class="assassins-counter-container" id="assassins-counter-box" data-cursor="hover" data-cursor-label="COUNTDOWN">
+        <img src="./assets/counter-frame.png" alt="Countdown" class="counter-frame-graphic" />
+        
+        <!-- Live Synchronized Digits Overlaid on the 4 Ornate Boxes -->
+        <div class="counter-overlay-grid">
+          <div class="counter-slot slot-days">
+            <span class="counter-dynamic-val" id="hud-days">00</span>
+          </div>
+          <div class="counter-slot slot-hours">
+            <span class="counter-dynamic-val" id="hud-hours">00</span>
+          </div>
+          <div class="counter-slot slot-mins">
+            <span class="counter-dynamic-val" id="hud-minutes">00</span>
+          </div>
+          <div class="counter-slot slot-secs">
+            <span class="counter-dynamic-val" id="hud-seconds">00</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- FLOATING HUD COMMAND DOCK (ON THE SIDE) -->
     <aside class="floating-hud-dock">
+      <!-- REC Campus Map -->
+      <button class="dock-btn" id="dock-map" data-cursor="sync" data-cursor-label="REC MAP">
+        <span>🗺️</span>
+        <span class="dock-tooltip">REC Campus Map</span>
+      </button>
+
       <!-- Eagle Vision Toggle -->
       <button class="dock-btn" id="dock-eagle" data-cursor="eagle" data-cursor-label="EAGLE">
         <span>🦅</span>
@@ -157,41 +184,48 @@
       </button>
     </aside>
 
-    <!-- BOTTOM AMBIENT STATUS HUD -->
-    <footer class="bottom-hud-bar">
-      <!-- Status Ticker -->
-      <div class="hud-pill">
-        <div class="sync-status-ticker">
-          <span class="pulse-beacon"></span>
-          <span>ANIMUS SEQUENCE 01 &bull; RECs TITANIUM '27</span>
-        </div>
-      </div>
+    <!-- REC CAMPUS MAP MODAL -->
+    <div class="campus-map-overlay" id="campus-map-overlay">
+      <div class="campus-map-window">
+        <button class="dossier-close-btn" id="close-map">ESC // CLOSE</button>
 
-      <!-- Live Fest Countdown Timer -->
-      <div class="hud-pill">
-        <div class="countdown-strip">
-          <div class="cd-cell">
-            <span class="cd-val" id="hud-days">42</span>
-            <span class="cd-lbl">Days</span>
-          </div>
-          <span style="color: var(--crimson-primary); font-family: var(--font-serif); font-size: 16px;">:</span>
-          <div class="cd-cell">
-            <span class="cd-val" id="hud-hours">16</span>
-            <span class="cd-lbl">Hours</span>
-          </div>
-          <span style="color: var(--crimson-primary); font-family: var(--font-serif); font-size: 16px;">:</span>
-          <div class="cd-cell">
-            <span class="cd-val" id="hud-minutes">38</span>
-            <span class="cd-lbl">Mins</span>
-          </div>
-          <span style="color: var(--crimson-primary); font-family: var(--font-serif); font-size: 16px;">:</span>
-          <div class="cd-cell">
-            <span class="cd-val" id="hud-seconds" style="color: var(--gold-light);">55</span>
-            <span class="cd-lbl">Secs</span>
+        <div class="campus-map-header">
+          <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px; color: var(--gold-primary);">TACTICAL SATELLITE RECON // REC CAMPUS</span>
+          <h3 style="font-family: var(--font-serif); font-size: 26px; color: #fff; letter-spacing: 2px; margin-top: 4px;">Rajalakshmi Engineering College (REC)</h3>
+          <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">TITANIUM '27 Official Festival Sector Grounds & Zones</p>
+        </div>
+
+        <div class="campus-map-body">
+          <div class="campus-map-viewport">
+            <img src="./assets/rec-campus-map.png" alt="REC Campus Map" class="campus-satellite-img" />
+
+            <!-- Interactive Campus Pin 1: Main Stage / Football Turf -->
+            <div class="map-sector-pin" style="top: 66%; left: 51%;" data-cursor="sync" data-cursor-label="MAIN STAGE">
+              <span class="pin-beacon"></span>
+              <span class="pin-badge">STAGE &bull; TURF</span>
+            </div>
+
+            <!-- Interactive Campus Pin 2: Robowars / Architecture Block -->
+            <div class="map-sector-pin" style="top: 72%; left: 21%;" data-cursor="blade" data-cursor-label="ROBOWARS">
+              <span class="pin-beacon"></span>
+              <span class="pin-badge">ROBOWARS &bull; MECH</span>
+            </div>
+
+            <!-- Interactive Campus Pin 3: Food Court (CCD & Tibb's) -->
+            <div class="map-sector-pin" style="top: 67%; left: 42%;" data-cursor="hover" data-cursor-label="FOOD ZONE">
+              <span class="pin-beacon"></span>
+              <span class="pin-badge">FOOD &bull; CCD</span>
+            </div>
+
+            <!-- Interactive Campus Pin 4: Transport & Parking -->
+            <div class="map-sector-pin" style="top: 57%; left: 70%;" data-cursor="hover" data-cursor-label="BUS DEPO">
+              <span class="pin-beacon"></span>
+              <span class="pin-badge">BUS DEPT &bull; ENTRY</span>
+            </div>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
 
     <!-- FULLSCREEN ANIMUS MEMORY DOSSIER (GAME INTERFACE WITH COLLECTIBLE 3D CARDS) -->
     <div class="animus-dossier-overlay" id="dossier-overlay">
@@ -301,7 +335,7 @@
           <input type="text" id="forge-name" class="forge-input" value="Ezio Auditore" />
 
           <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; color: var(--gold-light); display: block; margin-bottom: 6px;">GUILD / INSTITUTE</label>
-          <input type="text" id="forge-college" class="forge-input" value="Raghu Engineering College" />
+          <input type="text" id="forge-college" class="forge-input" value="Rajalakshmi Engineering College" />
 
           <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; color: var(--gold-light); display: block; margin-bottom: 6px;">SPECIALIZATION</label>
           <select id="forge-role" class="forge-input" style="background: #0e141d; color: #fff;">
@@ -329,7 +363,7 @@
 
           <div style="margin: 20px 0;">
             <div id="disp-name" style="font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--gold-light); letter-spacing: 1.5px;">Ezio Auditore</div>
-            <div id="disp-college" style="font-family: var(--font-mono); font-size: 11px; color: var(--titanium-silver); margin-top: 4px;">Raghu Engineering College</div>
+            <div id="disp-college" style="font-family: var(--font-mono); font-size: 11px; color: var(--titanium-silver); margin-top: 4px;">Rajalakshmi Engineering College</div>
             <div id="disp-role" style="font-family: var(--font-mono); font-size: 10px; color: var(--crimson-primary); margin-top: 6px; text-transform: uppercase; font-weight: 700;">Grand Assassin (VIP All-Access)</div>
           </div>
 
