@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RECs TITANIUM '27 | The Creed of Innovation</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,5 95,90 50,70 5,90' fill='%23d4af37'/></svg>" />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <!-- Eagle Vision Atmospheric Post-Processing Tint Layer -->
+    <div class="eagle-vision-tint"></div>
+
+    <!-- MAIN HERO STAGE -->
+    <section class="hero-stage" id="hero-stage">
+      <!-- Layer 1: Ambient edge-bleed backdrop -->
+      <div class="hero-ambient-layer">
+        <img src="./assets/bg-clean.jpg" alt="" class="hero-ambient-img" />
+      </div>
+
+      <!-- Layer 2: Pristine Uncropped Clean Background Art -->
+      <div class="hero-art-layer" id="hero-art-layer">
+        <img src="./assets/bg-clean.jpg" alt="RECs TITANIUM 27 Scene" class="hero-clean-bg" id="hero-bg" />
+      </div>
+
+      <!-- Layer 3: Interactive Canvas Embers & Animus Fragments -->
+      <canvas id="embers-canvas"></canvas>
+
+      <!-- Layer 4: Independent 3D Floating Foreground Logos & Brand Lockups -->
+      <div class="hero-brand-layer" id="hero-brand-layer">
+        <!-- Top Left Brand Crest Lockup -->
+        <div class="brand-header-lockup" data-cursor="sync" data-cursor-label="TITANIUM">
+          <img src="./assets/logo-titanium-header.png" alt="TITANIUM '27" class="brand-header-img" />
+        </div>
+
+        <!-- Center 3D Floating Metallic Fest Title -->
+        <div class="main-title-container" id="main-title-box">
+          <img src="./assets/logo-titanium-main.png" alt="REC'S TITANIUM '27" class="main-title-img" id="main-title-img" data-cursor="sync" data-cursor-label="THE ORDER" />
+          
+          <div class="main-title-sub">
+            <span class="sub-line"></span>
+            <span class="sub-text">INDIA'S LARGEST TECH FEST</span>
+            <span class="sub-line"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vignette and Depth Shading -->
+      <div class="hero-vignette"></div>
+
+      <!-- Layer 5: Interactive World Hotspots with Official Insignia Markers -->
+      <div class="hotspots-layer" id="hotspots-layer">
+        <!-- Marker 1: Hackathons (Near Harbor Fleet) -->
+        <div class="game-hotspot" style="top: 72%; left: 34%;" data-memory="hackathons" data-cursor="sync" data-cursor-label="HACKATHONS">
+          <div class="hotspot-insignia-wrap">
+            <div class="hotspot-beacon-pulse"></div>
+            <img src="./assets/event_markers/hackathons.png" alt="Hackathons" class="hotspot-marker-icon" />
+          </div>
+          <span class="hotspot-tag">HACKATHONS</span>
+        </div>
+
+        <!-- Marker 2: Robowars & Combat (Citadel Rampart) -->
+        <div class="game-hotspot" style="top: 40%; left: 88%;" data-memory="robowars" data-cursor="blade" data-cursor-label="ROBOWARS">
+          <div class="hotspot-insignia-wrap">
+            <div class="hotspot-beacon-pulse"></div>
+            <img src="./assets/event_markers/technical_events.png" alt="Robowars" class="hotspot-marker-icon" />
+          </div>
+          <span class="hotspot-tag">ROBOWARS &bull; ₹6,00,000</span>
+        </div>
+
+        <!-- Marker 3: Technical Events (Fortress Bastion) -->
+        <div class="game-hotspot" style="top: 56%; left: 16%;" data-memory="technical" data-cursor="blade" data-cursor-label="TECHNICAL">
+          <div class="hotspot-insignia-wrap">
+            <div class="hotspot-beacon-pulse"></div>
+            <img src="./assets/event_markers/technical_events.png" alt="Technical Events" class="hotspot-marker-icon" />
+          </div>
+          <span class="hotspot-tag">TECHNICAL EVENTS</span>
+        </div>
+
+        <!-- Marker 4: Workshops (Grand Academy / Cathedral) -->
+        <div class="game-hotspot" style="top: 65%; left: 62%;" data-memory="workshops" data-cursor="sync" data-cursor-label="WORKSHOPS">
+          <div class="hotspot-insignia-wrap">
+            <div class="hotspot-beacon-pulse"></div>
+            <img src="./assets/event_markers/workshops.png" alt="Workshops" class="hotspot-marker-icon" />
+          </div>
+          <span class="hotspot-tag">MASTER WORKSHOPS</span>
+        </div>
+
+        <!-- Marker 5: FPV Drone Racing (Soaring Eagle / Sky) -->
+        <div class="game-hotspot" style="top: 24%; left: 78%;" data-memory="drones" data-cursor="blade" data-cursor-label="DRONES">
+          <div class="hotspot-insignia-wrap">
+            <div class="hotspot-beacon-pulse"></div>
+            <img src="./assets/event_markers/special_attractions.png" alt="FPV Drones" class="hotspot-marker-icon" />
+          </div>
+          <span class="hotspot-tag">FPV DRONE RACING</span>
+        </div>
+
+        <!-- Marker 6: Main Stage & Technoholix (Plaza Ramparts) -->
+        <div class="game-hotspot" style="top: 80%; left: 76%;" data-memory="mainstage" data-cursor="sync" data-cursor-label="PRO NIGHTS">
+          <div class="hotspot-insignia-wrap">
+            <div class="hotspot-beacon-pulse"></div>
+            <img src="./assets/event_markers/main_stage.png" alt="Main Stage" class="hotspot-marker-icon" />
+          </div>
+          <span class="hotspot-tag">MAIN STAGE &bull; PRO NIGHTS</span>
+        </div>
+
+        <!-- Marker 7: Non-Technical Events (Festival Grounds) -->
+        <div class="game-hotspot" style="top: 84%; left: 50%;" data-memory="nontechnical" data-cursor="hover" data-cursor-label="FEST ZONE">
+          <div class="hotspot-insignia-wrap">
+            <div class="hotspot-beacon-pulse"></div>
+            <img src="./assets/event_markers/non_technical_events.png" alt="Non Technical" class="hotspot-marker-icon" />
+          </div>
+          <span class="hotspot-tag">NON-TECHNICAL ARENA</span>
+        </div>
+      </div>
+
+      <!-- Eagle Vision Secret Easter Eggs -->
+      <div class="eagle-secret-node" style="position: absolute; top: 16%; right: 10%; z-index: 15; opacity: 0; pointer-events: none;">
+        <div style="font-family: var(--font-mono); font-size: 11px; color: #00f0ff; letter-spacing: 2px; font-weight: 700; background: rgba(3,10,20,0.92); padding: 10px 16px; border: 1px solid #00f0ff;">
+          <div>[ EAGLE VISION SYNCHRONIZED ]</div>
+          <div style="color: #ffd700; margin-top: 4px;">CIPHER KEY: "ANIMUS-TITANIUM-2027"</div>
+          <div style="font-size: 10px; color: #c8d3df; margin-top: 3px;">UNLOCKS ₹500 SCHOLARSHIP ON COMBAT ARENAS</div>
+        </div>
+      </div>
+
+      <div class="eagle-secret-node" style="position: absolute; bottom: 85px; left: 50%; transform: translateX(-50%); z-index: 15; opacity: 0; pointer-events: none;">
+        <div style="font-family: var(--font-serif); font-size: 13px; color: #ffd700; letter-spacing: 5px; font-style: italic; background: rgba(3,5,8,0.92); padding: 6px 18px; border: 1px solid var(--border-gold); white-space: nowrap;">
+          "NOTHING IS IMPOSSIBLE &bull; EVERYTHING IS ENGINEERED"
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOATING HUD COMMAND DOCK (ON THE SIDE) -->
+    <aside class="floating-hud-dock">
+      <!-- Eagle Vision Toggle -->
+      <button class="dock-btn" id="dock-eagle" data-cursor="eagle" data-cursor-label="EAGLE">
+        <span>🦅</span>
+        <span class="dock-tooltip">Eagle Vision [V]</span>
+      </button>
+
+      <!-- The Animus Codex (Missions & Competitions) -->
+      <button class="dock-btn" id="dock-dossier" data-cursor="sync" data-cursor-label="DOSSIER">
+        <span>📜</span>
+        <span class="dock-tooltip">The Animus Codex</span>
+      </button>
+
+      <!-- Pass Forge -->
+      <button class="dock-btn" id="dock-pass" data-cursor="sync" data-cursor-label="PASS">
+        <span>🎟️</span>
+        <span class="dock-tooltip">Forge Pass Credential</span>
+      </button>
+
+      <!-- Audio Ambiance SFX -->
+      <button class="dock-btn" id="dock-audio" data-cursor="hover" data-cursor-label="AUDIO">
+        <span id="dock-audio-icon">🔇</span>
+        <span class="dock-tooltip" id="dock-audio-tooltip">Sound Effects: OFF</span>
+      </button>
+    </aside>
+
+    <!-- BOTTOM AMBIENT STATUS HUD -->
+    <footer class="bottom-hud-bar">
+      <!-- Status Ticker -->
+      <div class="hud-pill">
+        <div class="sync-status-ticker">
+          <span class="pulse-beacon"></span>
+          <span>ANIMUS SEQUENCE 01 &bull; RECs TITANIUM '27</span>
+        </div>
+      </div>
+
+      <!-- Live Fest Countdown Timer -->
+      <div class="hud-pill">
+        <div class="countdown-strip">
+          <div class="cd-cell">
+            <span class="cd-val" id="hud-days">42</span>
+            <span class="cd-lbl">Days</span>
+          </div>
+          <span style="color: var(--crimson-primary); font-family: var(--font-serif); font-size: 16px;">:</span>
+          <div class="cd-cell">
+            <span class="cd-val" id="hud-hours">16</span>
+            <span class="cd-lbl">Hours</span>
+          </div>
+          <span style="color: var(--crimson-primary); font-family: var(--font-serif); font-size: 16px;">:</span>
+          <div class="cd-cell">
+            <span class="cd-val" id="hud-minutes">38</span>
+            <span class="cd-lbl">Mins</span>
+          </div>
+          <span style="color: var(--crimson-primary); font-family: var(--font-serif); font-size: 16px;">:</span>
+          <div class="cd-cell">
+            <span class="cd-val" id="hud-seconds" style="color: var(--gold-light);">55</span>
+            <span class="cd-lbl">Secs</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- FULLSCREEN ANIMUS MEMORY DOSSIER (GAME INTERFACE WITH COLLECTIBLE 3D CARDS) -->
+    <div class="animus-dossier-overlay" id="dossier-overlay">
+      <div class="dossier-window">
+        <button class="dossier-close-btn" id="close-dossier">ESC // CLOSE</button>
+
+        <!-- Left Rail: Memory Sequences -->
+        <nav class="memory-rail" id="memory-rail">
+          <div class="rail-title">Animus Memory Sequences</div>
+
+          <button class="rail-item active" data-seq="technical" data-cursor="blade" data-cursor-label="SELECT">
+            <span class="rail-seq-code">SEQUENCE 01</span>
+            <div class="rail-item-name">01 // Technical Events</div>
+          </button>
+
+          <button class="rail-item" data-seq="hackathons" data-cursor="sync" data-cursor-label="SELECT">
+            <span class="rail-seq-code">SEQUENCE 02</span>
+            <div class="rail-item-name">02 // Hackathons</div>
+          </button>
+
+          <button class="rail-item" data-seq="nontechnical" data-cursor="hover" data-cursor-label="SELECT">
+            <span class="rail-seq-code">SEQUENCE 03</span>
+            <div class="rail-item-name">03 // Non-Technical Events</div>
+          </button>
+
+          <button class="rail-item" data-seq="workshops" data-cursor="sync" data-cursor-label="SELECT">
+            <span class="rail-seq-code">SEQUENCE 04</span>
+            <div class="rail-item-name">04 // Master Workshops</div>
+          </button>
+
+          <button class="rail-item" data-seq="drones" data-cursor="blade" data-cursor-label="SELECT">
+            <span class="rail-seq-code">SEQUENCE 05</span>
+            <div class="rail-item-name">05 // FPV Drone Racing</div>
+          </button>
+
+          <button class="rail-item" data-seq="robowars" data-cursor="blade" data-cursor-label="SELECT">
+            <span class="rail-seq-code">SEQUENCE 06</span>
+            <div class="rail-item-name">06 // Robowars Cage Siege</div>
+          </button>
+
+          <button class="rail-item" data-seq="mainstage" data-cursor="sync" data-cursor-label="SELECT">
+            <span class="rail-seq-code">SEQUENCE 07</span>
+            <div class="rail-item-name">07 // Main Stage Pro-Nights</div>
+          </button>
+        </nav>
+
+        <!-- Right Content Dossier with 3D Holographic Vertical Trading Card + Intel -->
+        <div class="dossier-detail-pane" id="dossier-pane">
+          <div class="dossier-content-grid">
+            <!-- Left Sub-Column: 3D Holographic Card Showcase -->
+            <div class="dossier-card-showcase">
+              <div class="collectible-card-wrap" id="collectible-card-wrap" data-cursor="sync" data-cursor-label="INSPECT">
+                <img src="./assets/event_cards/01_technical_events.png" alt="Event Card" class="collectible-card-img" id="dossier-card-img" />
+                <div class="card-foil-sheen" id="card-foil-sheen"></div>
+              </div>
+              <div class="card-hint">✦ 3D HOLOGRAPHIC CARD ✦</div>
+            </div>
+
+            <!-- Right Sub-Column: Intel & Actions -->
+            <div class="dossier-intel-col">
+              <div class="dossier-meta-row">
+                <span class="dossier-category-badge" id="dossier-cat">FLAGSHIP CODING & ALGORITHMS</span>
+                <span class="dossier-bounty-badge" id="dossier-bounty">BOUNTY: ₹5,00,000+</span>
+              </div>
+
+              <h2 class="dossier-headline" id="dossier-title">01 // Technical Events</h2>
+
+              <p class="dossier-brief-text" id="dossier-desc">
+                National coding championships, algorithmic duels, autonomous agent development, micro-mouse maze navigation, and zero-knowledge protocol challenges testing core engineering precision.
+              </p>
+
+              <div class="dossier-spec-grid" id="dossier-specs">
+                <div>
+                  <div class="spec-box-lbl">ELIGIBILITY</div>
+                  <div class="spec-box-val">Undergrad & Postgrad</div>
+                </div>
+                <div>
+                  <div class="spec-box-lbl">TEAM CAPACITY</div>
+                  <div class="spec-box-val">Solos & Teams of 2-4</div>
+                </div>
+                <div>
+                  <div class="spec-box-lbl">CERTIFICATION</div>
+                  <div class="spec-box-val">IIT & RECTECH Validated</div>
+                </div>
+              </div>
+
+              <div class="dossier-action-bar">
+                <button class="btn-dossier-primary" id="btn-dossier-enter" data-cursor="blade" data-cursor-label="REGISTER">INITIALIZE SYNCHRONIZATION</button>
+                <button class="btn-dossier-secondary" id="btn-dossier-rules" data-cursor="hover" data-cursor-label="PDF">DECRYPT RULEBOOK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D PASS FORGE MODAL -->
+    <div class="pass-forge-overlay" id="forge-overlay">
+      <div class="forge-box">
+        <button class="dossier-close-btn" id="close-forge">ESC // CLOSE</button>
+
+        <div>
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 3px; color: var(--gold-primary);">ANIMUS CREDENTIAL FORGE</span>
+          <h3 style="font-family: var(--font-serif); font-size: 24px; color: #fff; margin: 8px 0 20px;">Operative Access Token</h3>
+
+          <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; color: var(--gold-light); display: block; margin-bottom: 6px;">OPERATIVE NAME</label>
+          <input type="text" id="forge-name" class="forge-input" value="Ezio Auditore" />
+
+          <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; color: var(--gold-light); display: block; margin-bottom: 6px;">GUILD / INSTITUTE</label>
+          <input type="text" id="forge-college" class="forge-input" value="Raghu Engineering College" />
+
+          <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; color: var(--gold-light); display: block; margin-bottom: 6px;">SPECIALIZATION</label>
+          <select id="forge-role" class="forge-input" style="background: #0e141d; color: #fff;">
+            <option value="Grand Assassin (VIP All-Access)">Grand Assassin (VIP All-Access)</option>
+            <option value="Siege Combatant (Robowars)">Siege Combatant (Robowars)</option>
+            <option value="Cipher Infiltrator (Hackathon)">Cipher Infiltrator (Hackathon)</option>
+            <option value="FPV Aviator (Drone Racing)">FPV Aviator (Drone Racing)</option>
+            <option value="Main Stage Spectator (Pro-Nights)">Main Stage Spectator (Pro-Nights)</option>
+          </select>
+
+          <button class="btn-dossier-primary" id="btn-confirm-pass" style="width: 100%; margin-top: 10px;" data-cursor="sync" data-cursor-label="CONFIRM">
+            CONFIRM & DOWNLOAD PASS
+          </button>
+        </div>
+
+        <!-- 3D Metallic Pass Display -->
+        <div class="pass-preview-3d" id="preview-pass-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px; color: var(--gold-primary);">OFFICIAL ACCESS TOKEN</span>
+              <h4 style="font-family: var(--font-serif); font-size: 18px; color: #fff; letter-spacing: 2px;">RECs TITANIUM '27</h4>
+            </div>
+            <div style="width: 28px; height: 28px; border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--gold-light);">🦅</div>
+          </div>
+
+          <div style="margin: 20px 0;">
+            <div id="disp-name" style="font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--gold-light); letter-spacing: 1.5px;">Ezio Auditore</div>
+            <div id="disp-college" style="font-family: var(--font-mono); font-size: 11px; color: var(--titanium-silver); margin-top: 4px;">Raghu Engineering College</div>
+            <div id="disp-role" style="font-family: var(--font-mono); font-size: 10px; color: var(--crimson-primary); margin-top: 6px; text-transform: uppercase; font-weight: 700;">Grand Assassin (VIP All-Access)</div>
+          </div>
+
+          <div style="border-top: 1px dashed var(--border-gold); padding-top: 14px; display: flex; justify-content: space-between; align-items: flex-end;">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 9px; color: var(--text-muted); display: block;">SECURITY SEED</span>
+              <span style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-light); letter-spacing: 2px;">AC-9842-TITAN</span>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); letter-spacing: 4px;">|||||| |||| |||||</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Module Script -->
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
